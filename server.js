@@ -1,13 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env.server' });
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const GITHUB_CLIENT_ID = 'Ov23lieFoy1lWNRqu63Z';
-const GITHUB_CLIENT_SECRET = 'bf687264e66ced47cf26efcf9a34895c7ac6a7f0';
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 
 app.post('/api/github/callback', async (req, res) => {
   const { code } = req.body;

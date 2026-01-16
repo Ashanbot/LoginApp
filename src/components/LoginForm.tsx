@@ -51,11 +51,11 @@ function LoginForm() {
   };
 
   const handleGithubLogin = () => {
-    window.location.href = `https://github.com/login/oauth/authorize?client_id=Ov23lieFoy1lWNRqu63Z&redirect_uri=${window.location.origin}/callback`;
+    window.location.href = `https://github.com/login/oauth/authorize?client_id=${import.meta.env.VITE_GITHUB_CLIENT_ID}&redirect_uri=${window.location.origin}/callback`;
   };
 
   return (
-    <GoogleOAuthProvider clientId="981254189490-v7ocjv145d5u6f7ko77ht9vfbvmqprpg.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
         <h1 className="text-3xl font-bold mb-8">Login</h1>
         
